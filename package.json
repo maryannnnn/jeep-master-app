@@ -1,0 +1,17 @@
+{
+    "scripts": {
+        "build": "cd client && npm install && npm run build",
+        "start": "cross-env NODE_ENV=production node server/server.js",
+        "server": "npm run start --prefix server",
+        "client": "npm run start --prefix client",
+        "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""
+    },
+    "devDependencies": {
+        "concurrently": "^6.2.0",
+        "cross-env": "^7.0.3",
+        "nodemon": "^2.0.12"
+    },
+    "dependencies": {
+        "react-meta-tags": "^1.0.1"
+    }
+}
