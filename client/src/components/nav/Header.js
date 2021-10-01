@@ -47,40 +47,42 @@ const Header = () => {
             <div className="header-top">
 
                 <div className="left-white">
-                    <a className="avtozap">АВТОЗАПЧАСТИ</a>
+                    <a href="" className="avtozap">АВТОЗАПЧАСТИ</a>
                 </div>
 
                 <div className="big-logo">
-                    <a className="logo">Jeep</a>
+                    <a href="" className="logo">Jeep</a>
                 </div>
 
 
                 <div className="right-white">
-                    <div className="media h">
-                        <a target="_blank"
-                           href="https://www.facebook.com/%D0%90%D0%BA%D1%81%D0%B5%D1%81%D1%81%D1%83%D0%B0%D1%80%D1%8B-%D0%B8-%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%94%D0%B6%D0%B8%D0%BF%D0%BE%D0%B2-Jeep-628106244057934/">
-                            <img src="/socialMedia/facebook (1) 2.png" alt=""/>
-                        </a>
-                        <a target="_blank" href="https://www.instagram.com/jeep_partt/">
-                            <img src="/socialMedia/instagram-logo 2.png" alt=""/>
-                        </a>
-                        <a target="_blank" href="https://ok.ru/group/58581401534513">
-                            <img src="/socialMedia/odnoklassniki-logo 2.png" alt=""/>
-                        </a>
-                        <a target="_blank" href="https://twitter.com/Jeep_part">
-                            <img src="/socialMedia/youtube 3.png" alt=""/>
-                        </a>
-                        <a target="_blank" href="https://vk.com/part_jeep">
-                            <img src="/socialMedia/vk.png" alt=""/>
-                        </a>
-                        <a target="_blank" href="https://www.youtube.com/channel/UCZv_z-n3a---7V3mYcp0rAQ">
-                            <img src="/socialMedia/youtube.png" alt=""/>
-                        </a>
-                    </div>
+                    {/*<div className="media h">*/}
+                    {/*    <a target="_blank"*/}
+                    {/*       href="https://www.facebook.com/%D0%90%D0%BA%D1%81%D0%B5%D1%81%D1%81%D1%83%D0%B0%D1%80%D1%8B-%D0%B8-%D0%B0%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D1%87%D0%B0%D1%81%D1%82%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%94%D0%B6%D0%B8%D0%BF%D0%BE%D0%B2-Jeep-628106244057934/">*/}
+                    {/*        <img src="/socialMedia/facebook (1) 2.png" alt=""/>*/}
+                    {/*    </a>*/}
+                    {/*    <a target="_blank" href="https://www.instagram.com/jeep_partt/">*/}
+                    {/*        <img src="/socialMedia/instagram-logo 2.png" alt=""/>*/}
+                    {/*    </a>*/}
+                    {/*    <a target="_blank" href="https://ok.ru/group/58581401534513">*/}
+                    {/*        <img src="/socialMedia/odnoklassniki-logo 2.png" alt=""/>*/}
+                    {/*    </a>*/}
+                    {/*    <a target="_blank" href="https://twitter.com/Jeep_part">*/}
+                    {/*        <img src="/socialMedia/youtube 3.png" alt=""/>*/}
+                    {/*    </a>*/}
+                    {/*    <a target="_blank" href="https://vk.com/part_jeep">*/}
+                    {/*        <img src="/socialMedia/vk.png" alt=""/>*/}
+                    {/*    </a>*/}
+                    {/*    <a target="_blank" href="https://www.youtube.com/channel/UCZv_z-n3a---7V3mYcp0rAQ">*/}
+                    {/*        <img src="/socialMedia/youtube.png" alt=""/>*/}
+                    {/*    </a>*/}
+                    {/*</div>*/}
+
+                    <Link className="font2" to="/">Войти</Link>
 
                     <div className="tel-basket">
-                        <a className="tel">+7(925)906-04-48</a>
-                        <img className="basket" src="/basket.jpg" alt=""/>
+                        <a href="" className="tel">+7(925)906-04-48</a>
+                        <img className="basket" src="/basket1.png" alt=""/>
                     </div>
 
                 </div>
@@ -109,7 +111,8 @@ const Header = () => {
                         <a className="search-field-text">Номер детали</a>
                     </div>
                     <button className="search-button font3">
-                        <a className="search-button-text">Поиск</a>
+                        {/*<a className="search-button-text">Поиск</a>*/}
+                        <img className="search-button-img" src="/search.png" alt=""/>
                     </button>
                 </div>
                 {/*/!*<Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>

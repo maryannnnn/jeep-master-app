@@ -2,12 +2,10 @@
  $mainColor0: #6C6A43;
  $white1: white;
 
-
  html {
    font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
    box-sizing: border-box;
  }
-
  body {
    margin: 0;
    height: 100vh;
@@ -22,7 +20,6 @@
  #root {
    height: 100%;
  }
-
  /* Layout */
  .grid-container {
    display: grid;
@@ -37,23 +34,18 @@
    text-decoration: none;
  }
 
-
  header {
    grid-area: header;
    background-color: #0e0d0d;
    //padding: 0 15rem;
-
    font-family: 'Encode Sans', sans-serif;
    font-size: 2.5rem;
-
-
    display: flex;
    flex-direction: column;
 
-   a {
-     color: #131313;
+   header a {
+     color: #050505;
    }
-
  }
 
  main {
@@ -61,7 +53,6 @@
    padding: 1rem;
    margin: 0 15rem;
    text-decoration: none;
-
  }
 
  footer {
@@ -80,7 +71,7 @@
    justify-content: center;
 
    a {
-     color: #131313;
+     color: #a11a1a;
    }
  }
 
@@ -113,16 +104,12 @@
    font-size: 1.8rem;
    /* font-weight: 400; */
    /*padding: 1rem 0;*/
-
  }
-
  h2:active {
    color: #0e0d0d;
  }
-
  a {
    text-decoration: none;
-
  }
 
  a:hover {
@@ -130,7 +117,6 @@
  }
 
  .font1 {
-
  }
 
  //header
@@ -165,14 +151,11 @@
    //font-weight: bold;
  }
 
- .logo {
-   //font-family: 'Arial', sans-serif;
+.logo {
    font-family: Arial, sans-serif;
-   //font-style: normal;
    font-weight: bold;
    font-size: 96px;
-   line-height: 110px;
-   color: #0c0c0c;
+   color: #171717;
  }
 
 
@@ -293,7 +276,7 @@
 
  .search-button {
    height: 45px;
-   width: 120px;
+   width: 45px;
 
    background: #FFFFFF;
    border: 2px solid #B2B3CA;
@@ -305,17 +288,18 @@
 
    margin-left: 0.5rem;
 
-   &-text{
-     display: block;
+   &-img{
      //margin: 0.2rem;
-     font-size: 20px;
+     //font-size: 20px;
+     height: 23px;
+     width: 23px;
    }
  }
 
 
 
  .big-logo {
-   background: linear-gradient(89.98deg, rgba(255, 255, 255, 0.47) 1%, #FFFFFF 55.79%, rgba(255, 255, 255, 0.4) 95.14%);
+   background: linear-gradient(89.98deg, rgba(255, 255, 255, 0.24) 1%, #FFFFFF 55.79%, rgba(255, 255, 255, 0.14) 95.14%);
 
    margin: auto;
    padding: 0 5rem;
@@ -326,7 +310,6 @@
    font-style: normal;
    font-weight: bold;
    font-size: 36px;
-   line-height: 42px;
    color: #1D1B1B;
    text-shadow: 1px 3px 1px rgba(0, 0, 0, 0.22);
 
@@ -339,6 +322,8 @@
  .basket{
    position: relative;
    top: 1.35rem;
+   height: 55px;
+   width: 49px;
  }
 
  .right-white {
@@ -352,7 +337,7 @@
  }
 
  .left-white {
-   background: linear-gradient(91.77deg, rgba(255, 255, 255, 0.0332) -29.29%, rgba(255, 255, 255, 0) -29.29%, rgba(255, 255, 255, 0.83) 38.24%, rgba(255, 255, 255, 0.83) 99.09%);
+   background: linear-gradient(91.77deg, rgba(255,255,255,0.03) -29.29%, rgba(255, 255, 255, 0) -29.29%, rgba(255, 255, 255, 0.83) 38.24%, rgba(255, 255, 255, 0.29) 99.09%);
    display: flex;
  }
 
@@ -362,7 +347,7 @@
    font-weight: bold;
    font-size: 36px;
    line-height: 42px;
-   color: #252323;
+   color: #181818;
    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
    margin: auto 5rem auto 6rem;
 
@@ -374,15 +359,26 @@
      height: 195px;
    }
 
-
    .header-top{
      height: 130px;
-
    }
    .avtozap {
      font-size: 28px;
-
    }
+   .logo {
+     font-size: 70px;
+   }
+
+   .tel {
+     font-size: 26px;
+     top: -2rem;
+   }
+   .basket{
+     height: 40px;
+     width: 36px;
+     top: -2.28rem;
+   }
+
 
    .header-down{
      height: 65px;
@@ -396,9 +392,10 @@
 
    .search-button{
      height: 35px;
-     width: 80px;
-     &-text{
-       font-size: 15px;
+     width: 42px;
+     &-img{
+       height: 17px;
+       width: 17px;
      }
    }
 
@@ -418,5 +415,86 @@
    .font2 {
      letter-spacing: 0.5rem;
    }
+
+ }
+
+ @media (max-width: 992px) {
+   .header-top {
+     padding: 0rem;
+   }
+   .avtozap {
+     font-size: 24px;
+   }
+
+   .big-logo {
+     padding: 0 2rem;
+   }
+   .logo {
+     font-size: 55px;
+   }
+
+   .tel {
+     font-size: 20px;
+     top: -2rem;
+   }
+   .basket{
+     height: 30px;
+     width: 27px;
+     top: -2rem;
+   }
+ }
+
+
+ @media (max-width: 767px) {
+   header{
+     height: 140px;
+   }
+
+   .header-top{
+     background-image: none;
+     background-color:$mainColor;
+     height: 90px;
+   }
+   .header-down{
+     height: 50px;
+     //padding: 0 2rem;
+   }
+
+   .avtozap {
+     font-size: 28px;
+   }
+
+   .big-logo {
+     padding: 0rem;
+   }
+   .logo {
+     font-size: 70px;
+   }
+
+   .tel {
+     font-size: 26px;
+     top: -2rem;
+   }
+   .basket{
+     height: 40px;
+     top: -2.28rem;
+   }
+
+   .right-white {
+     background: none;
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     & > * {
+       margin: 1.5rem;
+     }
+   }
+
+   .left-white {
+     background: none;
+     display: flex;
+   }
+
+
 
  }
