@@ -11,7 +11,8 @@ const app = express();
 
 // db
 mongoose
-  .connect(process.env.DATABASE, {
+  // .connect(process.env.DATABASE || 'mongodb://localhost/jeep', {
+    .connect('mongodb://localhost/jeep', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
