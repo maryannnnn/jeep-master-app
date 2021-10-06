@@ -81,7 +81,7 @@ const App = () => {
             <ToastContainer />
             <main>
                 <Switch>
-                    {/*<Route exac t path="/" component={Home} />*/}
+                    <Route exac t path="/" component={Home} />
 
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/register" component={Register}/>
