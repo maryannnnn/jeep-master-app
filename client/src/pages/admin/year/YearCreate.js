@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AdminNav from "../../../components/nav/AdminNav";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import { getModeles } from "../../../functions/model";
 import {
   createYear,
   getYears,
@@ -17,22 +18,27 @@ const YearCreate = () => {
 
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
+  const [modeles, setModeles] = useState([]);
+  const [model, setModel] = useState("");
   const [years, setYears] = useState([]);
   // step 1
   const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
+    loadModeles();
     loadYears();
   }, []);
 
-  const loadYears = () =>
-    getYears().then((c) => setYears(c.data));
+  const loadModeles = () =>
+    getModeles().then((c) => setModeles(c.data));
+
+  const loadYears = () => getYears().then((s) => setYears(s.data));
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(name);
     setLoading(true);
-    createYear({ name }, user.token)
+    createYear({ name, parent: model }, user.token)
       .then((res) => {
         // console.log(res)
         setLoading(false);
@@ -80,8 +86,25 @@ const YearCreate = () => {
           {loading ? (
             <h4 className="text-danger">Loading..</h4>
           ) : (
-            <h4>Create model</h4>
+            <h4>Create year</h4>
           )}
+
+          <div className="form-group">
+            <label>Parent year-model</label>
+            <select
+              name="model"
+              className="form-control"
+              onChange={(e) => setModel(e.target.value)}
+            >
+              <option>Please select</option>
+              {modeles.length > 0 &&
+                modeles.map((m) => (
+                  <option key={m._id} value={m._id}>
+                    {m.name}
+                  </option>
+                ))}
+            </select>
+          </div>
 
           <YearForm
             handleSubmit={handleSubmit}
@@ -93,16 +116,16 @@ const YearCreate = () => {
           <LocalSearch keyword={keyword} setKeyword={setKeyword} />
 
           {/* step 5 */}
-          {yaers.filter(searched(keyword)).map((c) => (
-            <div className="alert alert-secondary" key={c._id}>
-              {c.name}
+          {years.filter(searched(keyword)).map((s) => (
+            <div className="alert alert-secondary" key={s._id}>
+              {s.name}
               <span
-                onClick={() => handleRemove(c.slug)}
+                onClick={() => handleRemove(s.slug)}
                 className="btn btn-sm float-right"
               >
                 <DeleteOutlined className="text-danger" />
               </span>
-              <Link to={`/admin/year/${c.slug}`}>
+              <Link to={`/admin/year/${s.slug}`}>
                 <span className="btn btn-sm float-right">
                   <EditOutlined className="text-warning" />
                 </span>

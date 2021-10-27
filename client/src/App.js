@@ -23,6 +23,8 @@ import CategoryUpdate from "./pages/admin/category/CategoryUpdate";
 import ModelUpdate from "./pages/admin/model/ModelUpdate";
 import SubCreate from "./pages/admin/sub/SubCreate";
 import SubUpdate from "./pages/admin/sub/SubUpdate";
+import YearCreate from "./pages/admin/year/YearCreate";
+import YearUpdate from "./pages/admin/year/YearUpdate";
 import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
@@ -30,6 +32,7 @@ import Product from "./pages/Product";
 import CategoryHome from "./pages/category/CategoryHome";
 import ModelHome from "./pages/model/ModelHome";
 import SubHome from "./pages/sub/SubHome";
+import YearHome from "./pages/year/YearHome";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
@@ -91,6 +94,8 @@ const App = () => {
         <AdminRoute exact path="/admin/model/:slug" component={ModelUpdate} />
         <AdminRoute exact path="/admin/sub" component={SubCreate} />
         <AdminRoute exact path="/admin/sub/:slug" component={SubUpdate} />
+        <AdminRoute exact path="/admin/year" component={YearCreate} />
+        <AdminRoute exact path="/admin/year/:slug" component={YearUpdate} />
         <AdminRoute exact path="/admin/product" component={ProductCreate} />
         <AdminRoute exact path="/admin/products" component={AllProducts} />
         <AdminRoute
@@ -102,6 +107,7 @@ const App = () => {
         <Route exact path="/category/:slug" component={CategoryHome} />
         <Route exact path="/car/:slug" component={ModelHome} />
         <Route exact path="/sub/:slug" component={SubHome} />
+        <Route exact path="/year/:slug" component={YearHome} />
         <Route exact path="/shop" component={Shop} />
         <Route exact path="/cart" component={Cart} />
         <UserRoute exact path="/checkout" component={Checkout} />

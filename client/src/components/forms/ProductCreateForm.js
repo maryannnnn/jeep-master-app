@@ -9,6 +9,7 @@ const ProductCreateForm = ({
   setValues,
   values,
   handleCatagoryChange,
+  handleModelChange,
   modelOptions,
   subOptions,
   showSub,
@@ -120,23 +121,21 @@ const ProductCreateForm = ({
         />
       </div>
 
-      <div>
+      <div className="form-group">
         <label>Модель</label>
-        <Select
-          mode="multiple"
-          style={{ width: "100%" }}
-          placeholder="Выберете"
-          value={model}
-          onChange={(value) => setValues({ ...values, model: value })}
+        <select
+          name="model"
+          className="form-control"
+          onChange={handleModelChange}
         >
-          {console.log("model ModelOptions", modelOptions)}
-          {modelOptions.length &&
+          <option>Выберете</option>
+          {modelOptions.length > 0 &&
             modelOptions.map((m) => (
-              <Option key={m._id} value={m._id}>
+              <option key={m._id} value={m._id}>
                 {m.name}
-              </Option>
+              </option>
             ))}
-        </Select>
+        </select>
       </div>
 
       <div className="form-group">
