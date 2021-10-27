@@ -45,6 +45,7 @@ const Header = () => {
     return (
         <header className="">
             <div className="header-top">
+
                 <div className="left-white">
                     <a href="" className="avtozap">АВТОЗАПЧАСТИ</a>
                 </div>
@@ -55,8 +56,7 @@ const Header = () => {
 
                 <div className="right-white">
 
-                    <Link className="font2" to="/">Войти</Link>
-
+                    <Link className="font3 signin " to="/">Войти</Link>
                     <div className="tel-basket">
                         <a href="" className="tel">+7(925)906-04-48</a>
                         <img className="basket" src="/basket1.png" alt=""/>
@@ -65,33 +65,59 @@ const Header = () => {
 
             </div>
 
-            <div className="header-down">
-                <Navbar className="navbar" expand="lg">
-                    <Navbar.Toggle className="burger" aria-controls="basic-navbar-nav"/>
-                    <Navbar.Collapse className="" id="basic-navbar-nav">
-                        <Nav className="links-nav me-auto">
+            
+            <nav class="header-down navbar navbar-expand-lg navbar-light bg-light">
 
-                            <Link className="header-link font2" to="/">Главная</Link>
-                            <Link className="header-link font2" to="/">Модели</Link>
-                            <Link className="header-link font2" to="/">Обвес</Link>
-                            <Link className="header-link font2" to="/">Доставка</Link>
-                            <Link className="header-link font2" to="/">Контакты</Link>
-                        </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
 
-                <div className="search-block">
-                    <input type="text" placeholder="Номер детали" className="search-field">
+                <button class="navbar-toggler close-nav bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    </input>
-                    <button className="search-button font3">
-                        {/*<a className="search-button-text">Поиск</a>*/}
-                        <img className="search-button-img" src="/search.png" alt=""/>
-                    </button>
+                <div className="flex-centre find-box1"> 
+                    <input type="text" placeholder="Номер детали" className="search-field"/>
+                    <button class="search-button" >Поиск</button>
                 </div>
-            </div>
 
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="links-nav navbar-nav mr-auto">
+                        
+                        <li class="nav-item">
+                        <Link class="nav-link header-link font2" to="/rwe">Главная</Link>
+                        </li>
 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle header-link font2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Модели
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                        <Link className="header-link font2" class="nav-link header-link font2" to="/">Обвес</Link>
+                        </li>
+                        
+                        <li class="nav-item">
+                        <Link className="header-link font2" class="nav-link header-link font2" to="/">Доставка</Link>
+                        </li>
+
+                        <li class="nav-item">
+                        <Link className="header-link font2" class="nav-link header-link font2" to="/">Контакты</Link>
+                        </li>
+                      
+                    </ul>
+
+                    <div className="flex-centre find-box2"> 
+                        <input type="text" placeholder="Номер детали" className="search-field"/>
+                        <button class="search-button  " >Поиск</button>
+                    </div>
+                </div>
+          
+            </nav>
+      
         </header>
         // <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
         //   <Item key="home" icon={<AppstoreOutlined />}>

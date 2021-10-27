@@ -77,11 +77,12 @@ const App = () => {
         <body>
         <div className="grid-container">
             <Header/>
-            <SideDrawer />
-            <ToastContainer />
+            {/* <SideDrawer />
+            <ToastContainer /> */}
+            {/* <aside className="hnf-menu hnf-menu--default" aria-hidden="false"></aside> */}
             <main>
                 <Switch>
-                    <Route exac t path="/" component={Home} />
+                    <Route exact path="/" component={Home} />
 
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/register" component={Register}/>

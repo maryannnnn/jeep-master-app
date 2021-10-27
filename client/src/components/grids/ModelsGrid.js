@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const ModelsGrid = () => {
     return (
@@ -20,10 +21,10 @@ const ModelsGrid = () => {
                                 <a className="block font5" href="#">2015</a>
                                 </div>
                     </div>
-                
+
                 </div>
                 <div>
-                        <a className="font5" href="">Jeep Wrangler</a>
+                        <Link className="font5" to="/car/">Jeep Wrangler</Link>
                 </div>
             </div>
 
@@ -46,7 +47,7 @@ const ModelsGrid = () => {
                 
                 </div>
                 <div>
-                        <a className="font5" href="">Jeep Renegade</a>
+                    <Link className="font5" to="/car/">Jeep Renegade</Link>
                 </div>
             </div>
 
@@ -70,7 +71,7 @@ const ModelsGrid = () => {
                 
                 </div>
                 <div>
-                        <a className="font5" href="">Jeep Wrangler Unlimited</a>
+                    <Link className="font5" to="/car/">Jeep Wrangler Unlimited</Link>
                 </div>
             </div>
 
@@ -93,7 +94,7 @@ const ModelsGrid = () => {
                 
                 </div>
                 <div>
-                        <a className="font5" href="">Jeep Grand Cherokee</a>
+                    <Link className="font5" to="/car/">Jeep Grand Cherokee</Link>
                 </div>
             </div>
 
@@ -118,7 +119,7 @@ const ModelsGrid = () => {
                 
                 </div>
                 <div>
-                        <a className="font5" href="">Jeep Compass</a>
+                    <Link className="font5" to="/car/compas">Jeep Compass</Link>
                 </div>
             </div>
 
@@ -147,7 +148,7 @@ const ModelsGrid = () => {
                 
                 </div>
                 <div>
-                        <a className="font5" href="">Jeep Grand Cherokee</a>
+                    <Link className="font5" to="/car/">Jeep Grand Cherokee</Link>
                 </div>
             </div>                 
         </div>
