@@ -4,12 +4,10 @@ const slugify = require("slugify");
 
 exports.create = async (req, res) => {
   try {
-    const { name } = req.body;
-    // const category = await new Category({ name, slug: slugify(name) }).save();
-    // res.json(category);
-    res.json(await new Year({ name, slug: slugify(name) }).save());
+    const { name, parent } = req.body;
+    res.json(await new Year({ name, parent, slug: slugify(name) }).save());
   } catch (err) {
-    // console.log(err);
+    console.log("SYEAR CREATE ERR ----->", err);
     res.status(400).send("Create year failed");
   }
 };
@@ -19,8 +17,9 @@ exports.list = async (req, res) =>
 
 exports.read = async (req, res) => {
   let year = await Year.findOne({ slug: req.params.slug }).exec();
-  // res.json(category);
-  const products = await Product.find({ year }).populate("year").exec();
+  const products = await Product.find({ years: year })
+    .populate("model")
+    .exec();
 
   res.json({
     year,
@@ -29,16 +28,16 @@ exports.read = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  const { name } = req.body;
+  const { name, parent } = req.body;
   try {
     const updated = await Year.findOneAndUpdate(
       { slug: req.params.slug },
-      { name, slug: slugify(name) },
+      { name, parent, slug: slugify(name) },
       { new: true }
     );
     res.json(updated);
   } catch (err) {
-    res.status(400).send("year update failed");
+    res.status(400).send("Year update failed");
   }
 };
 
@@ -50,5 +49,4 @@ exports.remove = async (req, res) => {
     res.status(400).send("Year delete failed");
   }
 };
-
 
