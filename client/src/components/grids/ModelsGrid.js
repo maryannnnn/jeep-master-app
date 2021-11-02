@@ -1,7 +1,17 @@
+import Axios from "axios";
 import React from "react";
 import {Link} from "react-router-dom";
 
 const ModelsGrid = () => {
+
+    // useEffect(() => {
+    //     getYear(e.target.value).then((res) => {
+    //         setYearOptions(res.data);
+    
+      
+    //       });
+    // }, []) 
+
     return (
         <div className="models-grid">
             
@@ -12,13 +22,7 @@ const ModelsGrid = () => {
                     <div className="back ">     
                         <div className="back-content ">       
                                 <a className="block font5" href="#">2010</a>
-                                <a className="block font5" href="#">2011</a>
-                                <a className="block font5" href="#">2014</a>
-                                <a className="block font5" href="#">2015</a>
-                                <a className="block font5" href="#">2010</a>
-                                <a className="block font5" href="#">2011</a>
-                                <a className="block font5" href="#">2014</a>
-                                <a className="block font5" href="#">2015</a>
+                               
                                 </div>
                     </div>
 

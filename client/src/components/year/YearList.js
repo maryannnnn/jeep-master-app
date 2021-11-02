@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getYears } from "../../functions/year";
 
-const ModelList = () => {
+const YearList = () => {
   const [yaers, setYears] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -37,4 +37,4 @@ const ModelList = () => {
   );
 };
 
-export default YearlList;
+export default YearList;

@@ -55,7 +55,7 @@ header {
 
 main {
   grid-area: main;
-  padding: 1rem;
+  padding: 0rem;
   margin: 0 10rem;
   text-decoration: none;
 }
@@ -110,8 +110,8 @@ h1 {
   display: inline-block;
 }
 h2 {
-  margin: 0;
-  //font-size: 2.3rem;
+  // margin: 0;
+  font-size: 2.5rem;
   /* font-weight: 400; */
   /*padding: 1rem 0;*/
 }
@@ -550,20 +550,72 @@ span {
   transform: perspective(600px) rotateX(0deg);
   // position: absolute;
 }
+
+.brake-line {
+  margin: -30px auto 10px;
+  padding: 0;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid #1f1209;
+  box-shadow: 0 20px 20px -20px #333;
+  width: 95%;
+}
+
+.product-card {
+  // margin: 2rem 1rem;
+  max-width: 30rem;
+  min-width: 25rem;
+  height: 23rem;
+  &__content {
+    // max-width: 30rem;
+    // min-width: 25rem;
+    height: 21rem;
+  }
+}
+
 /////MODEL   MODEL    MODEL    MODEL   MODEL    MODEL    MODEL   MODEL   MODEL    MODEL
 
 .container-model {
+  &__heading1 {
+    position: relative;
+    bottom: 3rem;
+  }
+
+  &__heading2 {
+    margin-top: 2rem;
+    // position: relative;
+    // bottom: 3rem;
+  }
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   align-items: center;
 }
-.model-box {
-  border: 1px solid #000000;
-  box-sizing: border-box;
-  border-radius: 3px;
+.modelName {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  // box-sizing: 2rem 5rem;
+  width: 18rem;
+  border-radius: 2px;
   padding: 10px;
+  background-color: rgb(231, 231, 231);
+}
+.model-years {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  &__box {
+    font-weight: bold;
+    font-size: 1.6rem;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 10px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .hnf-menu {
@@ -607,7 +659,7 @@ span {
     height: 195px;
   }
   main {
-    margin: 3rem 5rem;
+    margin: 3rem 0;
   }
 
   h1 {
@@ -672,7 +724,7 @@ span {
 
 @media (max-width: 992px) {
   main {
-    margin: 3rem 5rem;
+    margin: 3rem 0;
   }
 
   .grid-container {
@@ -843,7 +895,6 @@ span {
 
   .models-grid {
     margin: 1rem;
-
     width: 99%;
   }
 }
@@ -860,3 +911,9 @@ span {
 //     // width: 340px;
 //     // height: 480px;
 // }
+
+.nowrap {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}

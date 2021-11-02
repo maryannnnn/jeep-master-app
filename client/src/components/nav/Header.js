@@ -74,8 +74,7 @@ const Header = () => {
                 </button>
 
                 <div className="flex-centre find-box1"> 
-                    <input type="text" placeholder="Номер детали" className="search-field"/>
-                    <button class="search-button" >Поиск</button>
+                <Search />
                 </div>
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -111,8 +110,9 @@ const Header = () => {
                     </ul>
 
                     <div className="flex-centre find-box2"> 
-                        <input type="text" placeholder="Номер детали" className="search-field"/>
-                        <button class="search-button  " >Поиск</button>
+                        {/* <input type="text" placeholder="Номер детали" className="search-field"/>
+                        <button class="search-button  " >Поиск</button> */}
+                        <Search />
                     </div>
                 </div>
           
@@ -173,7 +173,7 @@ const Header = () => {
         //   )}
         //
         //   <span className="float-right p-1">
-        //     <Search />
+            // <Search />
         //   </span>
         // </Menu>
     );

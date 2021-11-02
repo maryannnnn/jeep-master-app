@@ -60,28 +60,26 @@ const productSchema = new mongoose.Schema(
         ref: "Sub",
       },
     ],
-    model: [
-      {
-        type: ObjectId,
-        ref: "Model",
-      }
-    ],
-    numberorigional: { 
-      type: String,
-      maxlength: 200, 
+    model: {
+      type: ObjectId,
+      ref: "Model",
     },
-    numberproduser: { 
+    numberorigional: {
       type: String,
-      maxlength: 200, 
+      maxlength: 200,
+    },
+    numberproduser: {
+      type: String,
+      maxlength: 200,
     },
     quantity: Number,
     sold: {
       type: Number,
       default: 0,
     },
-    wait: { 
+    wait: {
       type: Number,
-      default: 0, 
+      default: 0,
     },
     images: {
       type: Array,

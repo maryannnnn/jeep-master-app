@@ -9,7 +9,16 @@ import Register from "./pages/auth/Register";
 import Home from "./pages/Home";
 import Header from "./components/nav/Header";
 import SideDrawer from "./components/drawer/SideDrawer";
-
+import YearCreate from "./pages/admin/year/YearCreate";
+import YearUpdate from "./pages/admin/year/YearUpdate";
+import ProductCreate from "./pages/admin/product/ProductCreate";
+import AllProducts from "./pages/admin/product/AllProducts";
+import ProductUpdate from "./pages/admin/product/ProductUpdate";
+import Product from "./pages/Product";
+import CategoryHome from "./pages/category/CategoryHome";
+import ModelHome from "./pages/model/ModelHome";
+import SubHome from "./pages/sub/SubHome";
+import YearHome from "./pages/year/YearHome";
 import RegisterComplete from "./pages/auth/RegisterComplete";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import History from "./pages/user/History";
@@ -24,13 +33,6 @@ import CategoryUpdate from "./pages/admin/category/CategoryUpdate";
 import ModelUpdate from "./pages/admin/model/ModelUpdate";
 import SubCreate from "./pages/admin/sub/SubCreate";
 import SubUpdate from "./pages/admin/sub/SubUpdate";
-import ProductCreate from "./pages/admin/product/ProductCreate";
-import AllProducts from "./pages/admin/product/AllProducts";
-import ProductUpdate from "./pages/admin/product/ProductUpdate";
-import Product from "./pages/Product";
-import CategoryHome from "./pages/category/CategoryHome";
-import ModelHome from "./pages/model/ModelHome";
-import SubHome from "./pages/sub/SubHome";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
@@ -100,6 +102,13 @@ const App = () => {
                     <AdminRoute exact path="/admin/sub/:slug" component={SubUpdate}/>
                     <AdminRoute exact path="/admin/product" component={ProductCreate}/>
                     <AdminRoute exact path="/admin/products" component={AllProducts}/>
+
+                    <Route exact path="/year/:slug" component={YearHome} />
+
+                    <AdminRoute exact path="/admin/year" component={YearCreate} />
+                     <AdminRoute exact path="/admin/year/:slug" component={YearUpdate} />
+
+                    
                     <AdminRoute
                         exact
                         path="/admin/product/:slug"

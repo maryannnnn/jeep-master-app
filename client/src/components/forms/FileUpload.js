@@ -52,7 +52,7 @@ const FileUpload = ({ values, setValues, setLoading }) => {
       }
     }
     // send back to server to upload to cloudinary
-    // set url to images[] in the parent components state - ProductCreate
+    // set url to images[] in the parent component state - ProductCreate
   };
 
   const handleImageRemove = (public_id) => {
