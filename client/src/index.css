@@ -617,11 +617,6 @@ button {
   display: inline-block;
 }
 
-span {
-  display: block;
-  font-size: 20px;
-}
-
 .card:hover > .front {
   -webkit-transform: perspective(600px) rotateX(-180deg);
           transform: perspective(600px) rotateX(-180deg);
@@ -644,6 +639,7 @@ span {
 }
 
 .product-card {
+  margin: 1rem 0.4rem;
   max-width: 30rem;
   min-width: 25rem;
   height: 23rem;
@@ -661,9 +657,9 @@ span {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
   -webkit-box-align: center;
@@ -674,10 +670,27 @@ span {
 .container-model__heading1 {
   position: relative;
   bottom: 3rem;
+  display: inline-block;
 }
 
 .container-model__heading2 {
   margin-top: 2rem;
+}
+
+.container-model__head-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .modelName {
@@ -695,9 +708,10 @@ span {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .model-years__box {
@@ -710,6 +724,10 @@ span {
   padding: 10px;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.model-years__link {
+  color: #000;
 }
 
 .hnf-menu {
@@ -764,6 +782,11 @@ span {
           align-items: center;
 }
 
+.sidebar__colors > * {
+  position: relative;
+  bottom: 2rem !important;
+}
+
 @media (max-width: 1200px) {
   .grid-container {
     -ms-grid-rows: 200px 1fr 1fr;
@@ -773,7 +796,7 @@ span {
     height: 195px;
   }
   main {
-    margin: 3rem 2rem;
+    margin: 3rem 0;
   }
   h1 {
     font-size: 2.2rem;
@@ -999,6 +1022,9 @@ span {
   .models-grid {
     margin: 1rem;
     width: 99%;
+  }
+  .container-model {
+    margin-top: 5rem;
   }
 }
 

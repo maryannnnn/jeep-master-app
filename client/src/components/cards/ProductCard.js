@@ -54,11 +54,11 @@ const ProductCard = ({ product }) => {
   const { images, title, description, slug, price } = product;
   return (
     <div className='product-card'>
-      {product && product.ratings && product.ratings.length > 0 ? (
+      {/* {product && product.ratings && product.ratings.length > 0 ? (
         showAverage(product)
       ) : (
         <div className="text-center pt-1 pb-3">Нет Оценок</div>
-      )}
+      )} */}
 
       <Card
         cover={

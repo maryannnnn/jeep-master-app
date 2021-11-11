@@ -31,17 +31,17 @@ exports.list = async (req, res) =>
 
   
 
-// exports.read = async (req, res) => {
-//   let year = await Year.findOne({ slug: req.params.slug }).exec();
-//   const products = await Product.find({ years: year })
-//     .populate("model")
-//     .exec();
+exports.readAndProducts = async (req, res) => {
+  let year = await Year.findOne({ slug: req.params.slug }).exec();
+  const products = await Product.find({ years: year })
+    .populate("model")
+    .exec();
 
-//   res.json({
-//     year,
-//     products,
-//   });
-// };
+  res.json({
+    year,
+    products,
+  });
+};
 
 exports.update = async (req, res) => {
   const { name, parent } = req.body;

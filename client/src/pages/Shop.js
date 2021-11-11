@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+
+import {getYear} from "../functions/year";
+import { getModel } from "../functions/model";
+import { Link } from "react-router-dom";
 import {
   getProductsByCount,
   fetchProductsByFilter,
@@ -8,16 +12,20 @@ import { getSubs } from "../functions/sub";
 import { useSelector, useDispatch } from "react-redux";
 import ProductCard from "../components/cards/ProductCard";
 import { Menu, Slider, Checkbox, Radio } from "antd";
+import "react-toastify/dist/ReactToastify.css";
 import {
   DollarOutlined,
   DownSquareOutlined,
   StarOutlined,
 } from "@ant-design/icons";
 import Star from "../components/forms/Star";
+import { set } from "lodash";
+// import product from "../../../server/models/product";
 
 const { SubMenu, ItemGroup } = Menu;
 
-const Shop = () => {
+const Shop = ({slugModel, content,productsBeforeFiltre}) => {
+
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState([0, 0]);
@@ -38,18 +46,22 @@ const Shop = () => {
   ]);
   const [color, setColor] = useState("");
   const [shipping, setShipping] = useState("");
-
   let dispatch = useDispatch();
   let { search } = useSelector((state) => ({ ...state }));
   const { text } = search;
 
   useEffect(() => {
-    loadAllProducts();
+    loadAllProducts()
+  }, [productsBeforeFiltre]);
+
+  useEffect(() => {
+    // setProducts(productsBeforeFiltre)
+    // setProducts(productsBeforeFiltre);
     // fetch categories
     getCategories().then((res) => setCategories(res.data));
     // fetch subcategories
     getSubs().then((res) => setSubs(res.data));
-  }, []);
+  }, [products]);
 
   const fetchProducts = (arg) => {
     fetchProductsByFilter(arg).then((res) => {
@@ -59,11 +71,11 @@ const Shop = () => {
 
   // 1. load products by default on page load
   const loadAllProducts = () => {
-    getProductsByCount(12).then((p) => {
-      setProducts(p.data);
-      setLoading(false);
-    });
-  };
+      // getProductsByCount(12).then((p) => {
+      // setProducts(p.data);
+      setProducts(productsBeforeFiltre)
+      setLoading(false)
+  }
 
   // 2. load products on user search input
   useEffect(() => {
@@ -304,121 +316,142 @@ const Shop = () => {
     fetchProducts({ shipping: e.target.value });
   };
 
+
+
+
+  const [model, setModel] = useState({});
+    const [years, setYears] = useState([]);
+    // const [products, setProducts] = useState([]);
+    // const [loading, setLoading] = useState(false);
+
+    // const {slug} = match.params;
+
+    // useEffect(() => {
+    //   // console.log(content)
+
+    //     setLoading(true);
+    //     getModel(slugModel).then((res) => {
+    //       console.log(JSON.stringify(res.data, null, 4));
+    //       setModel(res.data.model);
+    //       setProducts(res.data.products);
+    //       setLoading(false);
+    //     });
+    //   }, []);
+    
+    useEffect(() => {
+        setLoading(true)
+        getYear(model._id).then((res) => {  
+            setYears(res.data)
+            console.log(years)
+            setLoading(false)
+        })
+    },[model]);
+
+
   return (
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-3 pt-2">
-          <h4>Search/Filter</h4>
-          <hr />
-
-          <Menu
-            defaultOpenKeys={["1", "2", "3", "4", "5", "6", "7"]}
-            mode="inline"
-          >
-            {/* price */}
-            <SubMenu
-              key="1"
-              title={
-                <span className="h6">
-                  <DollarOutlined /> Price
-                </span>
-              }
+         <h4>Фильтр</h4>
+            <hr />
+  
+            <Menu
+              defaultOpenKeys={["1", "2", "3", "4", "5", "6", "7"]}
+              mode="inline"
             >
-              <div>
-                <Slider
-                  className="ml-4 mr-4"
-                  tipFormatter={(v) => `$${v}`}
-                  range
-                  value={price}
-                  onChange={handleSlider}
-                  max="4999"
-                />
-              </div>
-            </SubMenu>
+            
+              <SubMenu
+                key="1"
+                title={
+                  <span className="h4">
+                    Цена
+                  </span>
+                }
+              >
+                <div>
+                  <Slider
+                    className="ml-4 mr-4"
+                    tipFormatter={(v) => `${v} руб`}
+                    range
+                    value={price}
+                    onChange={handleSlider}
+                    max="30000"
+                  />
+                </div>
+              </SubMenu>
+  
+             
+              <SubMenu
+                key="2"
+                title={
+                  <span className="h4">
+                    <DownSquareOutlined /> Категории
+                  </span>
+                }
+              >
+                <div style={{ maringTop: "-10px" }}>{showCategories()}</div>
+              </SubMenu>
+  
+            
+              <SubMenu
+                key="4"
+                title={
+                  <span className="h4">
+                    <DownSquareOutlined /> Подкатегории
+                  </span>
+                }
+              >
+                <div style={{ maringTop: "-10px" }} className="pl-4 pr-4">
+                  {showSubs()}
+                </div>
+              </SubMenu>
+  
+          
+              <SubMenu
+                key="6"
+                title={
+                  <span className="h4">
+                    <DownSquareOutlined /> Цвета
+                  </span>
+                }
+              >
+                <div style={{ maringTop: "-10px" }} className="pr-5">
+                  {showColors()}
+                </div>
+              </SubMenu>
+  
+     
+              <SubMenu
+                key="7"
+                title={
+                  <span className="h4">
+                    <DownSquareOutlined /> Доставка
+                  </span>
+                }
+              >
+                <div style={{ maringTop: "-10px" }} className="pr-5">
+                  {showShipping()}
+                </div>
+              </SubMenu>
+            </Menu> 
+          </div>
 
-            {/* category */}
-            <SubMenu
-              key="2"
-              title={
-                <span className="h6">
-                  <DownSquareOutlined /> Categories
-                </span>
-              }
-            >
-              <div style={{ maringTop: "-10px" }}>{showCategories()}</div>
-            </SubMenu>
 
-            {/* stars */}
-            <SubMenu
-              key="3"
-              title={
-                <span className="h6">
-                  <StarOutlined /> Rating
-                </span>
-              }
-            >
-              <div style={{ maringTop: "-10px" }}>{showStars()}</div>
-            </SubMenu>
+          <div className="col-md-9 pt-2 container-model" >
+          {content()}                    
 
-            {/* sub category */}
-            <SubMenu
-              key="4"
-              title={
-                <span className="h6">
-                  <DownSquareOutlined /> Sub Categories
-                </span>
-              }
-            >
-              <div style={{ maringTop: "-10px" }} className="pl-4 pr-4">
-                {showSubs()}
-              </div>
-            </SubMenu>
-
-            {/* brands */}
-            <SubMenu
-              key="5"
-              title={
-                <span className="h6">
-                  <DownSquareOutlined /> Brands
-                </span>
-              }
-            >
-              <div style={{ maringTop: "-10px" }} className="pr-5">
-                {showBrands()}
-              </div>
-            </SubMenu>
-
-            {/* colors */}
-            <SubMenu
-              key="6"
-              title={
-                <span className="h6">
-                  <DownSquareOutlined /> Colors
-                </span>
-              }
-            >
-              <div style={{ maringTop: "-10px" }} className="pr-5">
-                {showColors()}
-              </div>
-            </SubMenu>
-
-            {/* shipping */}
-            <SubMenu
-              key="7"
-              title={
-                <span className="h6">
-                  <DownSquareOutlined /> Shipping
-                </span>
-              }
-            >
-              <div style={{ maringTop: "-10px" }} className="pr-5">
-                {showShipping()}
-              </div>
-            </SubMenu>
-          </Menu>
-        </div>
-
-        <div className="col-md-9 pt-2">
+    {/* <hr className="brake-line"></hr> */}
+            
+            {products.length < 1 && <p>Товары не найдены</p>}
+            <div className="row">
+                {products.map((p) => (
+                    <div className="col" key={p._id}>
+                        <ProductCard product={p}/>
+                    </div>
+                ))}
+            </div>
+    </div>
+        {/* <div className="col-md-9 pt-2">
           {loading ? (
             <h4 className="text-danger">Loading...</h4>
           ) : (
@@ -434,7 +467,8 @@ const Shop = () => {
               </div>
             ))}
           </div>
-        </div>
+
+        </div> */}
       </div>
     </div>
   );

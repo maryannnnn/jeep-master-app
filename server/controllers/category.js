@@ -15,6 +15,21 @@ exports.create = async (req, res) => {
   }
 };
 
+
+exports.listByYear = async (req, res) => {
+
+
+
+  res.json({
+    category,
+    products,
+  });
+
+}
+//   res.json(await Category.find({ slug: req.params.slug }).exec());
+
+  
+
 exports.list = async (req, res) =>
   res.json(await Category.find({}).sort({ createdAt: -1 }).exec());
 

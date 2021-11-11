@@ -1,8 +1,10 @@
 import React, {useEffect} from "react";
 import "./index.css";
+import "./stripe.css";
 import {Switch, Route} from "react-router-dom";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Menu, Slider, Checkbox, Radio } from "antd";
 
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -15,7 +17,7 @@ import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
 import Product from "./pages/Product";
-import CategoryHome from "./pages/category/CategoryHome";
+import CategoryHome from "./pages/category/CategoriesHome";
 import ModelHome from "./pages/model/ModelHome";
 import SubHome from "./pages/sub/SubHome";
 import YearHome from "./pages/year/YearHome";
@@ -118,7 +120,7 @@ const App = () => {
                     <Route exact path="/category/:slug" component={CategoryHome}/>
                     <Route exact path="/car/:slug" component={ModelHome}/>
                     <Route exact path="/sub/:slug" component={SubHome}/>
-                    <Route exact path="/shop" component={Shop}/>
+                    {/* <Route exact path="/shop" component={Shop}/> */}
                     <Route exact path="/cart" component={Cart}/>
                     <UserRoute exact path="/checkout" component={Checkout}/>
                     <AdminRoute exact path="/admin/coupon" component={CreateCouponPage}/>

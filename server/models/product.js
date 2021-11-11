@@ -64,6 +64,12 @@ const productSchema = new mongoose.Schema(
       type: ObjectId,
       ref: "Model",
     },
+    years: [
+      {
+        type: ObjectId,
+        ref: "Year",
+      },
+    ],
     numberorigional: {
       type: String,
       maxlength: 200,

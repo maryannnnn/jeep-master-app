@@ -539,8 +539,8 @@ button {
 }
 
 span {
-  display: block;
-  font-size: 20px;
+  // display: block;
+  // font-size: 20px;
 }
 
 .card:hover > .front {
@@ -562,7 +562,7 @@ span {
 }
 
 .product-card {
-  // margin: 2rem 1rem;
+  margin: 1rem 0.4rem;
   max-width: 30rem;
   min-width: 25rem;
   height: 23rem;
@@ -579,6 +579,7 @@ span {
   &__heading1 {
     position: relative;
     bottom: 3rem;
+    display: inline-block;
   }
 
   &__heading2 {
@@ -586,10 +587,16 @@ span {
     // position: relative;
     // bottom: 3rem;
   }
+  &__head-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: center;
   align-items: center;
 }
@@ -605,7 +612,8 @@ span {
 .model-years {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  margin-bottom: 1.5rem;
   &__box {
     font-weight: bold;
     font-size: 1.6rem;
@@ -615,6 +623,9 @@ span {
     padding: 10px;
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
+  }
+  &__link {
+    color: #000;
   }
 }
 
@@ -646,6 +657,15 @@ span {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.sidebar {
+  &__colors {
+    & > * {
+      position: relative;
+      bottom: 2rem !important;
+    }
+  }
 }
 
 // MEDIA   MEDIA   MEDIA   MEDIA   MEDIA   MEDIA   MEDIA   MEDIA   MEDIA   MEDIA   MEDIA
@@ -896,6 +916,9 @@ span {
   .models-grid {
     margin: 1rem;
     width: 99%;
+  }
+  .container-model {
+    margin-top: 5rem;
   }
 }
 

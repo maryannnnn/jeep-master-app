@@ -22,6 +22,8 @@ exports.listAll = async (req, res) => {
     .limit(parseInt(req.params.count))
     .populate("category")
     .populate("subs")
+    .populate("model")
+    .populate("years")
     .sort([["createdAt", "desc"]])
     .exec();
   res.json(products);
@@ -44,6 +46,8 @@ exports.read = async (req, res) => {
     .populate("category")
     .populate("subs")
     .populate("model")
+    .populate("years")
+
     .exec();
   res.json(product);
 };
@@ -99,6 +103,10 @@ exports.list = async (req, res) => {
       .skip((currentPage - 1) * perPage)
       .populate("category")
       .populate("subs")
+
+      .populate("model")
+      .populate("years")
+
       .sort([[sort, order]])
       .limit(perPage)
       .exec();
@@ -161,6 +169,10 @@ exports.listRelated = async (req, res) => {
     .populate("category")
     .populate("subs")
     .populate("postedBy")
+
+    .populate("model")
+    .populate("years")
+    
     .exec();
 
   res.json(related);
