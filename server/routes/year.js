@@ -8,6 +8,7 @@ const { authCheck, adminCheck } = require("../middlewares/auth");
 const {
   create,
   read,
+  readAndProducts,
   update,
   remove,
   list,
@@ -17,6 +18,7 @@ const {
 router.post("/year", authCheck, adminCheck, create);
 router.get("/years", list);
 router.get("/year/:slug", read);
+router.get("/years/:slug", readAndProducts);
 router.put("/year/:slug", authCheck, adminCheck, update);
 router.delete("/year/:slug", authCheck, adminCheck, remove);
 

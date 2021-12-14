@@ -22,16 +22,20 @@ const Search = () => {
     history.push(`/shop?${text}`);
   };
 
+  {/* <input type="text" placeholder="Номер детали" className="search-field"/>
+                        <button class="search-button  " >Поиск</button> */}
+
   return (
-    <form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
+    <form className="form-inline my-2 my-lg-0 nowrap" onSubmit={handleSubmit}>
       <input
         onChange={handleChange}
         type="search"
         value={text}
-        className="form-control mr-sm-2"
-        placeholder="Search"
+        className="search-field"
+        placeholder="Номер детали"
       />
-      <SearchOutlined onClick={handleSubmit} style={{ cursor: "pointer" }} />
+      {/* <SearchOutlined class="search-button" onClick={handleSubmit} style={{ cursor: "pointer" }} /> */}
+      <button class="search-button" onClick={handleSubmit} >Поиск</button>
     </form>
   );
 };

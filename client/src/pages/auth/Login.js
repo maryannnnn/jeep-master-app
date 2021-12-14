@@ -19,7 +19,7 @@ const Login = ({ history }) => {
     if (intended) {
       return;
     } else {
-      if (user && user.token) history.push("/");
+      // if (user && user.token) history.push("/");
     }
   }, [user, history]);
 

@@ -60,28 +60,32 @@ const productSchema = new mongoose.Schema(
         ref: "Sub",
       },
     ],
-    model: [
+    model: {
+      type: ObjectId,
+      ref: "Model",
+    },
+    years: [
       {
         type: ObjectId,
-        ref: "Model",
-      }
+        ref: "Year",
+      },
     ],
-    numberorigional: { 
+    numberorigional: {
       type: String,
-      maxlength: 200, 
+      maxlength: 200,
     },
-    numberproduser: { 
+    numberproduser: {
       type: String,
-      maxlength: 200, 
+      maxlength: 200,
     },
     quantity: Number,
     sold: {
       type: Number,
       default: 0,
     },
-    wait: { 
+    wait: {
       type: Number,
-      default: 0, 
+      default: 0,
     },
     images: {
       type: Array,

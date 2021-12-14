@@ -6,6 +6,9 @@ export const getYears = async () =>
 export const getYear = async (slug) =>
   await axios.get(`${process.env.REACT_APP_API}/year/${slug}`);
 
+  export const getYearAndProducts = async (slug) =>
+  await axios.get(`${process.env.REACT_APP_API}/years/${slug}`);
+
 export const removeYear = async (slug, authtoken) =>
   await axios.delete(`${process.env.REACT_APP_API}/year/${slug}`, {
     headers: {

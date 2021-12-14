@@ -16,6 +16,7 @@ const ModelCreate = () => {
   const { user } = useSelector((state) => ({ ...state }));
 
   const [name, setName] = useState("");
+  const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [modeles, setModeles] = useState([]);
   // step 1

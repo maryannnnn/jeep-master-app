@@ -6,6 +6,7 @@ import { createProduct } from "../../../functions/product";
 import ProductCreateForm from "../../../components/forms/ProductCreateForm";
 import { getCategories, getCategorySubs } from "../../../functions/category";
 import { getModeles } from "../../../functions/model";
+import { getYear } from "../../../functions/year";
 import FileUpload from "../../../components/forms/FileUpload";
 import { LoadingOutlined } from "@ant-design/icons";
 
@@ -21,7 +22,8 @@ const initialState = {
   category: "",
   subs: [],
   modeles: [],
-  model: [],
+  model: "",
+  years: [],
   numberorigional: "",
   numberproduser: "",
   shipping: "Yes",
@@ -46,8 +48,13 @@ const ProductCreate = () => {
   const [values, setValues] = useState(initialState);
   const [modelOptions, setModelOptions] = useState([]);
   const [categoryOptions, setCategoryOptions] = useState([]);
+
   const [subOptions, setSubOptions] = useState([]);
   const [showSub, setShowSub] = useState(false);
+
+  const [yearOptions, setYearOptions] = useState([]);
+  const [showYear, setShowYear] = useState(false);
+
   const [loading, setLoading] = useState(false);
 
   // redux
@@ -91,11 +98,35 @@ const ProductCreate = () => {
     e.preventDefault();
     console.log("CLICKED CATEGORY", e.target.value);
     setValues({ ...values, subs: [], category: e.target.value });
+
     getCategorySubs(e.target.value).then((res) => {
       console.log("SUB OPTIONS ON CATGORY CLICK", res);
       setSubOptions(res.data);
+      console.log('КАТ')
+      console.log(subOptions)
     });
+
+   
     setShowSub(true);
+  };
+
+  const handleModelChange = (e) => {
+    e.preventDefault();
+    console.log("CLICKED MODEL", e.target.value);
+   
+
+    setValues({ ...values, years: [], model: e.target.value });
+
+    getYear(e.target.value).then((res) => {
+      console.log("SUB OPTIONS ON YEAR CLICK", res);
+      console.log('МОД')
+      setYearOptions(res.data);
+
+     console.log(yearOptions)
+
+    });
+   
+    setShowYear(true);
   };
 
   return (
@@ -129,9 +160,13 @@ const ProductCreate = () => {
             setValues={setValues}
             values={values}
             handleCatagoryChange={handleCatagoryChange}
+            handleModelChange={handleModelChange}
             modelOptions={modelOptions}
             subOptions={subOptions}
+            yearOptions={yearOptions}
             showSub={showSub}
+            showYear = {showYear}
+            // setYears = {setYears}
           />
         </div>
       </div>

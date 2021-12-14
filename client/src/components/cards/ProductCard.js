@@ -53,29 +53,30 @@ const ProductCard = ({ product }) => {
   // destructure
   const { images, title, description, slug, price } = product;
   return (
-    <>
-      {product && product.ratings && product.ratings.length > 0 ? (
+    <div className='product-card'>
+      {/* {product && product.ratings && product.ratings.length > 0 ? (
         showAverage(product)
       ) : (
-        <div className="text-center pt-1 pb-3">No rating yet</div>
-      )}
+        <div className="text-center pt-1 pb-3">Нет Оценок</div>
+      )} */}
 
       <Card
         cover={
           <img
             src={images && images.length ? images[0].url : laptop}
-            style={{ height: "150px", objectFit: "cover" }}
-            className="p-1"
+            style={{objectFit: "cover" }}
+            
+            className="p-1 product-card__content"
           />
         }
         actions={[
           <Link to={`/katalog/${slug}`}>
-            <EyeOutlined className="text-warning" /> <br /> View Product
+            <EyeOutlined className="text-warning" /> <br /> Посмотреть
           </Link>,
           <Tooltip title={tooltip}>
             <a onClick={handleAddToCart} disabled={product.quantity < 1}>
               <ShoppingCartOutlined className="text-danger" /> <br />
-              {product.quantity < 1 ? "Out of stock" : "Add to Cart"}
+              {product.quantity < 1 ? "Нету в Наличии" : "В Корзину"}
             </a>
           </Tooltip>,
         ]}
@@ -85,7 +86,7 @@ const ProductCard = ({ product }) => {
           description={`${description && description.substring(0, 40)}...`}
         />
       </Card>
-    </>
+    </div>
   );
 };
 

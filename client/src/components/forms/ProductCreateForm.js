@@ -9,9 +9,12 @@ const ProductCreateForm = ({
   setValues,
   values,
   handleCatagoryChange,
+  handleModelChange,
   modelOptions,
   subOptions,
+  yearOptions,
   showSub,
+  showYear
 }) => {
   // destructure
   const {
@@ -25,6 +28,7 @@ const ProductCreateForm = ({
     categories,
     category,
     subs,
+    years,
     modeles,
     model,
     numberorigional,
@@ -43,6 +47,7 @@ const ProductCreateForm = ({
 
   return (
     <form onSubmit={handleSubmit}>
+
       <div className="form-group">
         <label>Заголовок</label>
         <input
@@ -120,24 +125,47 @@ const ProductCreateForm = ({
         />
       </div>
 
-      <div>
+      <div className="form-group">
         <label>Модель</label>
-        <Select
-          mode="multiple"
-          style={{ width: "100%" }}
-          placeholder="Выберете"
-          value={model}
-          onChange={(value) => setValues({ ...values, model: value })}
+        <select
+          name="model"
+          className="form-control"
+          onChange={handleModelChange}
         >
-          {console.log("model ModelOptions", modelOptions)}
-          {modelOptions.length &&
+          <option>Выберете</option>
+          {modelOptions.length > 0 &&
             modelOptions.map((m) => (
-              <Option key={m._id} value={m._id}>
+              <option key={m._id} value={m._id}>
                 {m.name}
-              </Option>
+              </option>
             ))}
-        </Select>
+        </select>
       </div>
+
+
+      {showYear && (
+        <div>
+          <label>Года</label>
+          <Select
+            mode="multiple"
+            style={{ width: "100%" }}
+            placeholder="Выберете"
+
+            value={years}
+
+            onChange={(value) => setValues({ ...values, years: value })}
+          >
+            {yearOptions.length &&
+              yearOptions.map((s) => (
+                <Option key={s._id} value={s._id}>
+                  {s.name}
+                </Option>
+              
+              ))}
+          </Select>
+        </div>
+      )}
+
 
       <div className="form-group">
         <label>Марка</label>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { getModel } from "../../functions/year";
+import { getYear } from "../../functions/year";
 import ProductCard from "../../components/cards/ProductCard";
 
-const ModelHome = ({ match }) => {
+const YearHome = ({ match }) => {
   const [year, setYear] = useState({});
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -29,7 +29,7 @@ const ModelHome = ({ match }) => {
             </h4>
           ) : (
             <h4 className="text-center p-3 mt-5 mb-5 display-4 jumbotron">
-              {products.length} Products in "{model.name}" model
+              {products.length} Products in "{year.name}" year
             </h4>
           )}
         </div>
