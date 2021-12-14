@@ -12,6 +12,8 @@ const Home = () => {
 
           <h1 className="bold">Купить аксессуары и автозапчасти для Джипов (Jeep)</h1>
           <ModelsGrid />
+           <ModelsGrid />
+            <ModelsGrid />
 
           {/*<div className="jumbotron text-danger h1 font-weight-bold text-center">*/}
           {/*    <Jumbotron text={["Latest Products", "New Arrivals", "Best Sellers"]} />*/}
