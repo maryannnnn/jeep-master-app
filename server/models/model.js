@@ -15,6 +15,11 @@ const modelSchema = new mongoose.Schema(
       lowercase: true,
       index: true,
     },
+      image:{
+          type: String,
+          default:'ren.jpg'
+      }
+
   },
   { timestamps: true }
 );

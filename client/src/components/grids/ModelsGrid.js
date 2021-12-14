@@ -33,12 +33,11 @@ const ModelsGrid = () => {
                 <div className="models-grid__square ">
                     <div className="card noshadow">   
 
-                        <img className="models-grid__square--img front "src="/cars/new/wra1.jpg" alt="" />
+                        <img className="models-grid__square--img front " src={`/cars/new/${model.image}`} alt="" />
                         <div className="back ">     
                             <div className="back-content ">       
                             {years.map((year)=> (year.parent==model._id && <a className="block font5" href="#">{year.name}</a>) 
                             )}
-                                   
                             </div>
                         </div>
 
